@@ -29,7 +29,8 @@ public class PlayerMovement : MonoBehaviour
         {
             player.transform.Rotate(0, 1, 0);
         }
-        else if (Input.GetKey(KeyCode.W))
+        else 
+            if (Input.GetKey(KeyCode.W))
         {
             rb.linearVelocity = player.transform.forward;
         }
