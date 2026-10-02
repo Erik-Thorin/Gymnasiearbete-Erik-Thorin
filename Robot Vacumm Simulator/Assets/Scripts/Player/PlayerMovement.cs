@@ -34,6 +34,11 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = player.transform.forward;
         }
+            else
+                if (Input.GetKey(KeyCode.S))
+                {
+                    rb.linearVelocity = player.transform.forward * -0.75f;
+                }
 
     }
 
