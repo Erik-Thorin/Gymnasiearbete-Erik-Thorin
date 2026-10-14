@@ -7,18 +7,24 @@ public class VacuumHUD : MonoBehaviour
     [Header("Vacumm Reference")]
     [SerializeField] VacuumBagController vacuumController;
     [Header("Bag Capacity UI")]
-    [SerializeField] Slider bagCapacitySlider;
     [SerializeField] TMP_Text bagCapacityText;
 
     [Header("Level Cleanliness UI")]
     [SerializeField] TMP_Text cleanlinessText;
-    [SerializeField] TMP_Text scoreText;
+    [SerializeField] Slider cleanlinessSlider;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if (vacuumController == null)
         {
             vacuumController = FindFirstObjectByType<VacuumBagController>();
+        }
+
+        if (cleanlinessSlider != null)
+        {
+            cleanlinessSlider.minValue = 0f;
+            cleanlinessSlider.maxValue = 100f;
+            cleanlinessSlider.value = 0f;
         }
 
         if (vacuumController != null && vacuumController.storage != null)
@@ -29,12 +35,10 @@ public class VacuumHUD : MonoBehaviour
         if (CleanlinessManager.Instance != null)
         {
             CleanlinessManager.Instance.OnCleanlinessPercentageChanged += UpdateCleanlinessUI;
-            CleanlinessManager.Instance.OnScoreChanged += UpdateScoreUI;
         }
 
         UpdateBagUI();
         UpdateCleanlinessUI(0f);
-        UpdateScoreUI(0);
     }
 
     void OnDestroy()
@@ -47,43 +51,38 @@ public class VacuumHUD : MonoBehaviour
         if (CleanlinessManager.Instance != null)
         {
             CleanlinessManager.Instance.OnCleanlinessPercentageChanged -= UpdateCleanlinessUI;
-            CleanlinessManager.Instance.OnScoreChanged -= UpdateScoreUI;
         }
     }
 
     void UpdateBagUI()
     {
-        if (vacuumController == null || vacuumController.storage == null) return;
+        if (vacuumController == null || vacuumController.storage == null)
+        {
+            return;
+        }
 
         var storage = vacuumController.storage;
 
-        if (bagCapacitySlider != null)
+        if (storage.isFull)
         {
-            bagCapacitySlider.maxValue = storage.maxCapacity;
-            bagCapacitySlider.value = storage.currentVolume;
+            bagCapacityText.text = "Bag Full!";
         }
-
-        if (bagCapacityText != null)
+        else
         {
-            bagCapacityText.text = storage.isFull
-                ? "BAG FULL"
-                : $"Bag: {storage.currentVolume:F0} / {storage.maxCapacity:F0}";
+            bagCapacityText.text = "Trash: " + Mathf.FloorToInt(storage.currentVolume) + " / " + Mathf.FloorToInt(storage.maxCapacity);
         }
     }
 
     void UpdateCleanlinessUI(float percentageClean)
     {
+        if (cleanlinessSlider != null)
+        {
+            cleanlinessSlider.value = percentageClean;
+        }
+
         if (cleanlinessText != null)
         {
-            cleanlinessText.text = $"House Clean: {percentageClean:F0}%";
-        }
-    }
-
-    void UpdateScoreUI(int currentScore)
-    {
-        if (scoreText != null)
-        {
-            scoreText.text = $"Score: {currentScore}";
+            cleanlinessText.text = "House Clean: " + Mathf.FloorToInt(percentageClean) + "%";
         }
     }
 }

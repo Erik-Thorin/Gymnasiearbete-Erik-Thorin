@@ -4,6 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rb;
     [SerializeField] GameObject player;
+    [SerializeField] float speedMultiplier;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,13 +33,13 @@ public class PlayerMovement : MonoBehaviour
         else 
             if (Input.GetKey(KeyCode.W))
         {
-            rb.linearVelocity = player.transform.forward;
+            rb.linearVelocity = player.transform.forward * speedMultiplier;
         }
-            else
-                if (Input.GetKey(KeyCode.S))
-                {
-                    rb.linearVelocity = player.transform.forward * -0.75f;
-                }
+        else
+        if (Input.GetKey(KeyCode.S))
+        {
+            rb.linearVelocity = player.transform.forward * -0.75f;
+        }
 
     }
 
