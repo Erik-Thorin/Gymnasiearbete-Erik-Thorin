@@ -2,7 +2,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class DebrisItem : Collectible<DebrisData>
 {
-    bool isCollected = false;
+    public bool isCollected = false;
     private void Awake()
     {
         GetComponent<Collider>().isTrigger = true;

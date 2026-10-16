@@ -10,6 +10,10 @@ public class CleanlinessManager : MonoBehaviour
 
     public event Action<float> OnCleanlinessPercentageChanged;
 
+    [SerializeField] PlayerMovement playerMovement;
+
+    [SerializeField] GameObject finishedLevelUI;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -39,5 +43,11 @@ public class CleanlinessManager : MonoBehaviour
 
         float percentClean = ((float)CollectedDebrisCount / totalDebrisCount) * 100f;
         OnCleanlinessPercentageChanged?.Invoke(percentClean);
+    }
+
+    public void LevelCompleted()
+    {
+        playerMovement.canMove = false;
+        finishedLevelUI.SetActive(true);
     }
 }

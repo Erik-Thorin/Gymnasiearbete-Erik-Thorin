@@ -13,20 +13,21 @@ public class VacuumBagController : MonoBehaviour
         storage.onBagFull += HandleBagFull;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void TryCollectDebris(DebrisItem debris)
     {
-        if (other.TryGetComponent<DebrisItem>(out var debris))
+        if (debris.isCollected)
         {
-            if (storage.isFull)
-            {
-                Debug.Log("Vacuum bag is full! Return to base station to empty it.");
-                return;
-            }
+            return;
         }
 
-        if (storage.TryAdd(debris.Data, debris.Data.volume))
+        if (storage.isFull)
         {
-            debris.Collect(gameObject);
+            return;
+        }
+
+        if (debris.Collect(gameObject))
+        {
+            storage.TryAdd(debris.Data, debris.Data.volume);
         }
     }
 
