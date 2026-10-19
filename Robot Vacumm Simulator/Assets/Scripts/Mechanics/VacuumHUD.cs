@@ -12,9 +12,18 @@ public class VacuumHUD : MonoBehaviour
     [Header("Level Cleanliness UI")]
     [SerializeField] TMP_Text cleanlinessText;
     [SerializeField] Slider cleanlinessSlider;
+
+    [Header("Level Finished UI")]
+    [SerializeField] GameObject levelFinishedUI;
+
+    [Header("Player Movement")]
+    [SerializeField] PlayerMovement playerMovement;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        playerMovement = FindFirstObjectByType<PlayerMovement>();
+
         if (vacuumController == null)
         {
             vacuumController = FindFirstObjectByType<VacuumBagController>();
@@ -39,6 +48,7 @@ public class VacuumHUD : MonoBehaviour
 
         UpdateBagUI();
         UpdateCleanlinessUI(0f);
+        levelFinishedUI.SetActive(false);
     }
 
     void OnDestroy()
@@ -69,7 +79,7 @@ public class VacuumHUD : MonoBehaviour
         }
         else
         {
-            bagCapacityText.text = "Trash: " + Mathf.FloorToInt(storage.currentVolume) + " / " + Mathf.FloorToInt(storage.maxCapacity);
+            bagCapacityText.text = "Bag: " + Mathf.FloorToInt(storage.currentVolume) + " / " + Mathf.FloorToInt(storage.maxCapacity);
         }
     }
 
@@ -84,5 +94,16 @@ public class VacuumHUD : MonoBehaviour
         {
             cleanlinessText.text = "House Clean: " + Mathf.FloorToInt(percentageClean) + "%";
         }
+
+        if (percentageClean == 100)
+        {
+            LevelIsCompleted();
+        }
+    }
+
+    void LevelIsCompleted()
+    {
+        levelFinishedUI.SetActive(true);
+        playerMovement.canMove = false;
     }
 }
