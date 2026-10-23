@@ -3,7 +3,7 @@ using UnityEngine;
 public class VacuumBagController : MonoBehaviour
 {
     [Header("Capacity Settings")]
-    [SerializeField] float maxBagCapacity = 50f;
+    public float maxBagCapacity = 10f;
 
     public StorageBag<DebrisData> storage { get; private set; }
 
