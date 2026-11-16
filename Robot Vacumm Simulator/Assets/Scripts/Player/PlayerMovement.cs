@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] float speedMultiplier;
     [SerializeField] float defaultSpeed;
+    [SerializeField] float defaultTurnSpeed;
     public bool canMove;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,12 +30,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            player.transform.Rotate(0, -1, 0);
+            player.transform.Rotate(0, -1 * defaultTurnSpeed, 0);
         }
 
         else if (Input.GetKey(KeyCode.D))
         {
-            player.transform.Rotate(0, 1, 0);
+            player.transform.Rotate(0, 1 * defaultTurnSpeed, 0);
         }
         else 
             if (Input.GetKey(KeyCode.W))
