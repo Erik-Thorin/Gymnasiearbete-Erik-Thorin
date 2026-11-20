@@ -2672,7 +2672,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 675121126}
         m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
-        m_MethodName: GoToSettings
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6209,7 +6209,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 3
+  m_fontStyle: 67
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
