@@ -1,5 +1,6 @@
-using UnityEngine;
 using Unity.Cinemachine;
+using UnityEngine;
+using UnityEngine.EventSystems;
 public class HoldToLook : MonoBehaviour
 {
     CinemachineInputAxisController inputController;
@@ -12,6 +13,15 @@ public class HoldToLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale == 0f)
+        {
+            return;
+        }
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
         bool isHoldRightClick = Input.GetMouseButton(0);
 
         if (inputController != null)

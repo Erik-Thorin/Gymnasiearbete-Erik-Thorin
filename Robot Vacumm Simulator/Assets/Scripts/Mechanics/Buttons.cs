@@ -61,4 +61,9 @@ public class Buttons : MonoBehaviour
     {
         SceneManager.LoadScene("World 1 Level 1");
     }
+
+    public void GoToMainMenuScene()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
 }
