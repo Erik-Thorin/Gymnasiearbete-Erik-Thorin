@@ -47,8 +47,5 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         isPauseMenu = false;
         print("Close Menu");
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 }
