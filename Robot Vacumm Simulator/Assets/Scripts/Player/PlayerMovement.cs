@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] float speedMultiplier;
     [SerializeField] float defaultSpeed;
+    [SerializeField] float defaultReverseSpeed;
     [SerializeField] float defaultTurnSpeed;
     public bool canMove;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -45,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         else
         if (Input.GetKey(KeyCode.S))
         {
-            rb.linearVelocity = player.transform.forward * -0.75f;
+            rb.linearVelocity = player.transform.forward * -defaultReverseSpeed;
         }
 
     }

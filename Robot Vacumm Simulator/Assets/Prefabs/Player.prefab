@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6993440337228301918}
   - component: {fileID: 2519144697528150682}
   m_Layer: 0
-  m_Name: Sphere.001
+  m_Name: Spinny Thing Attachement 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,12 +26,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671564028043234741}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00000005338508, y: 0.7071068, z: -0.7071067, w: -0.000000053385072}
-  m_LocalPosition: {x: 0.45892867, y: -0.23000182, z: 0.5433258}
-  m_LocalScale: {x: 4.575216, y: 4.575216, z: 4.575216}
+  m_LocalRotation: {x: -0.00000004214685, y: 1, z: 0.00000020861623, w: -0.00000008429369}
+  m_LocalPosition: {x: 0.00033407213, y: 0.000101214835, z: -0.0071178633}
+  m_LocalScale: {x: 0.4575216, y: 0.4575216, z: 2.5635762}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6959493189846741378}
+  m_Children:
+  - {fileID: 5083496008942249782}
+  - {fileID: 3789762160392803394}
+  - {fileID: 2053968761530280196}
+  m_Father: {fileID: 8504618875306851335}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6993440337228301918
 MeshFilter:
@@ -210,7 +213,8 @@ Transform:
   m_LocalPosition: {x: 0.45558798, y: -0.21729867, z: 0.544338}
   m_LocalScale: {x: 10, y: 10, z: 1.7847005}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4359929466192182648}
   m_Father: {fileID: 6959493189846741378}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4295048060291819298
@@ -282,7 +286,7 @@ GameObject:
   - component: {fileID: 3276172915508188256}
   - component: {fileID: 2884339645836097254}
   m_Layer: 0
-  m_Name: spinny thing.001
+  m_Name: Spinny thing 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -296,12 +300,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2563383749042952732}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.6590274, y: 0.25628686, z: 0.25628686, w: 0.6590273}
-  m_LocalPosition: {x: 0.47775, y: -0.25656328, z: 0.5575237}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: -0.3624444, y: -0.9320054, z: -0.00000013557629, w: -0.000000032752713}
+  m_LocalPosition: {x: -0.0041137435, y: -0.003103217, z: 0.005805466}
+  m_LocalScale: {x: 21.856888, y: 21.856892, z: 21.856892}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6959493189846741378}
+  m_Father: {fileID: 4359929466192182648}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3276172915508188256
 MeshFilter:
@@ -388,30 +392,22 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3036312306262949625}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.60484, y: 1.393, z: -1.05928}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 7.155, y: 7.759, z: -6.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5332020259859154160}
   - {fileID: 7613729762230692082}
   - {fileID: 9215817377899039781}
-  - {fileID: 6756816788885967278}
-  - {fileID: 4359929466192182648}
-  - {fileID: 9200103513947524531}
-  - {fileID: 6226294211630460618}
-  - {fileID: 5083496008942249782}
   - {fileID: 8504618875306851335}
   - {fileID: 6246208104292176802}
-  - {fileID: 3789762160392803394}
-  - {fileID: 2053968761530280196}
-  - {fileID: 3629945476472290246}
   - {fileID: 8724867902973296345}
   - {fileID: 8559209556635921044}
   - {fileID: 2647070312755182026}
   - {fileID: 2659434673241218963}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &6210222274204392587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,7 +422,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   player: {fileID: 3036312306262949625}
   speedMultiplier: 1
-  defaultSpeed: 1.5
+  defaultSpeed: 2
+  defaultTurnSpeed: 1.5
   canMove: 0
 --- !u!54 &2217904099267656445
 Rigidbody:
@@ -453,7 +450,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 96
   m_CollisionDetection: 0
 --- !u!65 &5879735495144920443
 BoxCollider:
@@ -474,8 +471,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.83, y: 0.76, z: 1.83}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.83, y: 0.6, z: 1.83}
+  m_Center: {x: 0, y: -0.07, z: 0}
 --- !u!114 &8906868760134040750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,7 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d986eb68726d2cc46b3317a89657517b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VacuumBagController
-  maxBagCapacity: 10
+  maxBagCapacity: 50
 --- !u!1 &3227613087087217312
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,7 +929,7 @@ GameObject:
   - component: {fileID: 7152694403320092970}
   - component: {fileID: 8025385756913375449}
   m_Layer: 0
-  m_Name: spinny thing
+  m_Name: Spinny thing 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -946,12 +943,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5372212310780683582}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000053385076, y: 0.7071068, z: 0.70710677, w: 0.00000005338508}
-  m_LocalPosition: {x: 0.45900974, y: -0.25713935, z: 0.51361686}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: -1, y: -0.00000012644054, z: -0.000000042146855, w: 0.00000020861621}
+  m_LocalPosition: {x: -0.000017723854, y: 0.006493407, z: 0.005931365}
+  m_LocalScale: {x: 21.856894, y: 21.856894, z: 21.8569}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6959493189846741378}
+  m_Father: {fileID: 4359929466192182648}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7152694403320092970
 MeshFilter:
@@ -1022,7 +1019,7 @@ GameObject:
   - component: {fileID: 1732227828327053037}
   - component: {fileID: 5513220998795850134}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Spinny Thing Attachement 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1036,12 +1033,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6041956544169855180}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00000005338508, y: 0.7071068, z: -0.7071067, w: -0.000000053385072}
-  m_LocalPosition: {x: -0.45892897, y: -0.23000182, z: 0.5433258}
-  m_LocalScale: {x: 4.575216, y: 4.575216, z: 4.575216}
+  m_LocalRotation: {x: -0.00000004214685, y: 1, z: 0.00000020861623, w: -0.00000008429369}
+  m_LocalPosition: {x: -0.00033410787, y: 0.00010119695, z: -0.0071178633}
+  m_LocalScale: {x: 0.4575216, y: 0.4575216, z: 2.5635762}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6959493189846741378}
+  m_Children:
+  - {fileID: 9200103513947524531}
+  - {fileID: 6226294211630460618}
+  - {fileID: 3629945476472290246}
+  m_Father: {fileID: 6246208104292176802}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1732227828327053037
 MeshFilter:
@@ -1112,7 +1112,7 @@ GameObject:
   - component: {fileID: 8291082077354505782}
   - component: {fileID: 4398862356790944365}
   m_Layer: 0
-  m_Name: spinny thing.002
+  m_Name: Spinny thing 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1126,12 +1126,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6209878085040003462}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.65902734, y: -0.25628698, z: -0.25628698, w: 0.6590273}
-  m_LocalPosition: {x: 0.43803513, y: -0.25713935, z: 0.56341606}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: 0.36244452, y: -0.9320054, z: -0.00000007447271, w: -0.000000049865854}
+  m_LocalPosition: {x: 0.004566681, y: -0.0043910844, z: 0.0059313662}
+  m_LocalScale: {x: 21.856888, y: 21.856892, z: 21.85689}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6959493189846741378}
+  m_Father: {fileID: 4359929466192182648}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8291082077354505782
 MeshFilter:
@@ -1202,7 +1202,7 @@ GameObject:
   - component: {fileID: 9113274067087441762}
   - component: {fileID: 4797983660632330641}
   m_Layer: 0
-  m_Name: Spinny thing
+  m_Name: Spinny thing 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1216,12 +1216,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6363352499892416376}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.6590274, y: 0.25628686, z: 0.25628686, w: 0.6590273}
-  m_LocalPosition: {x: -0.47775, y: -0.25656328, z: 0.5575237}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: -0.3624444, y: -0.9320054, z: -0.00000013557629, w: -0.000000032752713}
+  m_LocalPosition: {x: 0.0041138367, y: -0.0031033207, z: 0.005805466}
+  m_LocalScale: {x: 21.856888, y: 21.856892, z: 21.856892}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6959493189846741378}
+  m_Father: {fileID: 6756816788885967278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9113274067087441762
 MeshFilter:
@@ -1383,7 +1383,7 @@ GameObject:
   - component: {fileID: 4712234916410312381}
   - component: {fileID: 4019236048587928954}
   m_Layer: 0
-  m_Name: SPinny thing
+  m_Name: Spinny thing 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1397,12 +1397,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7890065214873406469}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.65902734, y: -0.25628698, z: -0.25628698, w: 0.6590273}
-  m_LocalPosition: {x: -0.438035, y: -0.25713935, z: 0.56341606}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: 0.36244452, y: -0.9320054, z: -0.00000007447271, w: -0.000000049865854}
+  m_LocalPosition: {x: -0.004566795, y: -0.00439119, z: 0.0059313662}
+  m_LocalScale: {x: 21.856888, y: 21.856892, z: 21.85689}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6959493189846741378}
+  m_Father: {fileID: 6756816788885967278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4712234916410312381
 MeshFilter:
@@ -1473,7 +1473,7 @@ GameObject:
   - component: {fileID: 7125511811746112363}
   - component: {fileID: 5649851190247041849}
   m_Layer: 0
-  m_Name: spinny thing.003
+  m_Name: Spinny thing 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1487,12 +1487,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7919332871640836037}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000053385076, y: 0.7071068, z: 0.70710677, w: 0.00000005338508}
-  m_LocalPosition: {x: -0.45901, y: -0.25713935, z: 0.51361686}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: -1, y: -0.00000012644054, z: -0.000000042146855, w: 0.00000020861621}
+  m_LocalPosition: {x: 0.000017711553, y: 0.006493315, z: 0.005931365}
+  m_LocalScale: {x: 21.856894, y: 21.856894, z: 21.8569}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6959493189846741378}
+  m_Father: {fileID: 6756816788885967278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7125511811746112363
 MeshFilter:
@@ -1563,7 +1563,7 @@ GameObject:
   - component: {fileID: 2932712830086891032}
   - component: {fileID: 4641391047655022205}
   m_Layer: 0
-  m_Name: Spinny Thing holder 2.001
+  m_Name: Spinny Thing holder 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1581,7 +1581,8 @@ Transform:
   m_LocalPosition: {x: -0.45558798, y: -0.21729867, z: 0.544338}
   m_LocalScale: {x: 10, y: 10, z: 1.7847005}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6756816788885967278}
   m_Father: {fileID: 6959493189846741378}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2932712830086891032

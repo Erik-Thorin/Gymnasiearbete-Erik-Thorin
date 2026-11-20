@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class VacuumHUD : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class VacuumHUD : MonoBehaviour
     [SerializeField] VacuumBagController vacuumController;
     [Header("Bag Capacity UI")]
     [SerializeField] TMP_Text bagCapacityText;
+    [SerializeField] TextMeshProUGUI bagIsFull;
+    [SerializeField] TextMeshProUGUI PressToEmptyBag;
 
     [Header("Level Cleanliness UI")]
     [SerializeField] TMP_Text cleanlinessText;
@@ -16,8 +19,9 @@ public class VacuumHUD : MonoBehaviour
     [Header("Level Finished UI")]
     [SerializeField] GameObject levelFinishedUI;
 
-    [Header("Player Movement")]
+    [Header("Player")]
     [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] IsInChargingStation inChargingStation;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -51,6 +55,25 @@ public class VacuumHUD : MonoBehaviour
         levelFinishedUI.SetActive(false);
     }
 
+    void Update()
+    {
+        var storage = vacuumController.storage;
+        if (inChargingStation.isInChargingStation && storage.isFull)
+        {
+            PressToEmptyBag.text = "Press E to empty bag";
+        }
+        else
+        {
+            PressToEmptyBag.text = "";
+        }
+
+        if (inChargingStation.isInChargingStation == true && Input.GetKey(KeyCode.E))
+        {
+            print("emptying bag!!!");
+            vacuumController.EmptyVacumm();
+        }
+    }
+
     void OnDestroy()
     {
         if (vacuumController != null && vacuumController.storage != null)
@@ -76,10 +99,12 @@ public class VacuumHUD : MonoBehaviour
         if (storage.isFull)
         {
             bagCapacityText.text = "Bag Full!";
+            bagIsFull.text = "Bag is full!\r\nGo to charging station and empty the bag";
         }
         else
         {
             bagCapacityText.text = "Bag: " + Mathf.FloorToInt(storage.currentVolume) + " / " + Mathf.FloorToInt(storage.maxCapacity);
+            bagIsFull.text = "";
         }
     }
 

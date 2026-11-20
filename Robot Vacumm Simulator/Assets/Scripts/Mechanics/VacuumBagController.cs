@@ -1,9 +1,10 @@
+using TMPro;
 using UnityEngine;
 
 public class VacuumBagController : MonoBehaviour
 {
     [Header("Capacity Settings")]
-    public float maxBagCapacity = 10f;
+    public float maxBagCapacity;
 
     public StorageBag<DebrisData> storage { get; private set; }
 
